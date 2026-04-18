@@ -6,55 +6,75 @@
   <title>Data Career Explorer — India</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   
   <style>
     :root {
-      /* Google Material Palette */
-      --g-blue: #1a73e8;
-      --g-blue-hover: #174ea6;
-      --g-blue-light: #e8f0fe;
-      --g-red: #d93025;
-      --g-red-light: #fce8e6;
-      --g-green: #1e8e3e;
-      --g-green-light: #e6f4ea;
-      --g-yellow: #f9ab00;
-      --g-yellow-light: #fef7e0;
+      /* Modern SaaS Palette */
+      --primary: #4F46E5;
+      --primary-hover: #4338CA;
+      --primary-light: #EEF2FF;
+      --primary-gradient: linear-gradient(135deg, #4F46E5, #3B82F6);
       
-      --g-grey-50: #f8f9fa;
-      --g-grey-100: #f1f3f4;
-      --g-grey-200: #e8eaed;
-      --g-grey-300: #dadce0;
-      --g-grey-600: #80868b;
-      --g-grey-700: #5f6368;
-      --g-text: #202124;
+      --success: #10B981;
+      --success-light: #D1FAE5;
+      --success-gradient: linear-gradient(135deg, #10B981, #34D399);
       
-      --shadow-sm: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
-      --shadow-md: 0 4px 6px -1px rgba(60,64,67,0.15), 0 2px 4px -1px rgba(60,64,67,0.1);
+      --warning: #F59E0B;
+      --warning-light: #FEF3C7;
+      --warning-gradient: linear-gradient(135deg, #F59E0B, #FBBF24);
+      
+      --danger: #EF4444;
+      --danger-light: #FEE2E2;
+      --danger-gradient: linear-gradient(135deg, #EF4444, #F87171);
+      
+      --surface-50: #F8FAFC;
+      --surface-100: #F1F5F9;
+      --surface-200: #E2E8F0;
+      --surface-300: #CBD5E1;
+      --text-main: #0F172A;
+      --text-muted: #64748B;
+      --text-light: #94A3B8;
+      
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+      --shadow-glow: 0 10px 25px -5px rgba(79, 70, 229, 0.3);
+      
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: 'Roboto', Arial, sans-serif;
-      background-color: var(--g-grey-50);
-      color: var(--g-text);
-      line-height: 1.5;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--surface-50);
+      color: var(--text-main);
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      background-image: radial-gradient(circle at top right, #EEF2FF 0%, transparent 30%),
+                        radial-gradient(circle at bottom left, #F1F5F9 0%, transparent 30%);
+      background-attachment: fixed;
     }
 
-    h1, h2, h3, .google-sans {
-      font-family: 'Google Sans', 'Roboto', Arial, sans-serif;
+    h1, h2, h3, .heading-font {
+      font-family: 'Plus Jakarta Sans', sans-serif;
     }
 
-    /* ─── HEADER ─── */
+    /* ─── HEADER (Glassmorphism) ─── */
     header {
-      background: #ffffff;
-      border-bottom: 1px solid var(--g-grey-200);
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
       padding: 20px 24px;
       position: sticky;
       top: 0;
       z-index: 100;
+      box-shadow: var(--shadow-sm);
     }
 
     .header-inner {
@@ -68,27 +88,29 @@
     }
 
     h1 {
-      font-size: 24px;
-      font-weight: 400;
-      color: var(--g-grey-700);
+      font-size: 26px;
+      font-weight: 700;
       letter-spacing: -0.5px;
+      color: var(--text-main);
     }
 
     h1 b {
-      color: var(--g-blue);
-      font-weight: 500;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
     }
 
     .header-sub {
       font-size: 14px;
-      color: var(--g-grey-700);
-      max-width: 500px;
-      margin-top: 4px;
+      color: var(--text-muted);
+      max-width: 550px;
+      margin-top: 6px;
     }
 
     .header-stats {
       display: flex;
-      gap: 16px;
+      gap: 24px;
     }
 
     .hstat {
@@ -96,231 +118,264 @@
     }
 
     .hstat-num {
-      font-family: 'Google Sans', sans-serif;
-      font-size: 20px;
-      font-weight: 500;
-      color: var(--g-text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.2;
     }
 
     .hstat-label {
-      font-size: 12px;
-      color: var(--g-grey-600);
+      font-size: 11px;
+      color: var(--text-light);
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 1px;
+      font-weight: 600;
     }
 
     /* ─── MAIN CONTAINER ─── */
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 32px 24px;
+      padding: 40px 24px;
     }
 
-    /* ─── PANEL (Material Card) ─── */
+    /* ─── PANEL (Material Card to SaaS Card) ─── */
     .panel {
       background: #ffffff;
-      border: 1px solid var(--g-grey-200);
-      border-radius: 8px;
-      padding: 32px;
-      margin-bottom: 24px;
-      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow-md);
     }
 
     .panel-header {
-      margin-bottom: 24px;
+      margin-bottom: 32px;
     }
 
     .panel-title {
-      font-family: 'Google Sans', sans-serif;
-      font-size: 20px;
-      font-weight: 500;
-      color: var(--g-text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--text-main);
     }
 
     .panel-sub {
-      font-size: 14px;
-      color: var(--g-grey-700);
-      margin-top: 4px;
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-top: 6px;
     }
 
-    /* ─── SKILLS (Google Chips) ─── */
-    .skill-categories { display: flex; flex-direction: column; gap: 24px; }
+    /* ─── SKILLS CHIPS ─── */
+    .skill-categories { display: flex; flex-direction: column; gap: 28px; }
 
     .skill-group-label {
-      font-family: 'Google Sans', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 14px;
-      font-weight: 500;
-      color: var(--g-text);
+      font-weight: 600;
+      color: var(--text-main);
       margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
-    .skills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skills { display: flex; flex-wrap: wrap; gap: 10px; }
 
     .skill {
-      padding: 6px 16px;
+      padding: 8px 18px;
       background: #ffffff;
-      border: 1px solid var(--g-grey-300);
-      border-radius: 16px; /* Pill shape */
+      border: 1px solid var(--surface-300);
+      border-radius: var(--radius-full);
       font-size: 14px;
-      font-weight: 400;
-      color: var(--g-grey-700);
+      font-weight: 500;
+      color: var(--text-muted);
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
       user-select: none;
     }
 
     .skill:hover {
-      background: var(--g-grey-50);
-      border-color: var(--g-grey-600);
-      color: var(--g-text);
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
     }
 
     .skill.active {
-      background: var(--g-blue-light);
-      color: var(--g-blue-hover);
-      border-color: var(--g-blue-light);
-      font-weight: 500;
+      background: var(--primary-gradient);
+      color: #ffffff;
+      border-color: transparent;
+      box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
     }
 
     .skill-footer {
-      margin-top: 24px;
-      padding-top: 16px;
-      border-top: 1px solid var(--g-grey-200);
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px dashed var(--surface-200);
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
-    .skill-count { font-size: 14px; color: var(--g-grey-700); }
-    .skill-count span { color: var(--g-blue); font-weight: 500; }
+    .skill-count { font-size: 15px; color: var(--text-muted); font-weight: 500; }
+    .skill-count span { color: var(--primary); font-weight: 700; font-size: 18px; }
 
     .clear-btn {
       font-size: 14px;
-      color: var(--g-blue);
-      background: none;
+      color: var(--text-muted);
+      background: var(--surface-100);
       border: none;
       cursor: pointer;
       font-weight: 500;
-      padding: 6px 12px;
-      border-radius: 4px;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s;
     }
     
-    .clear-btn:hover { background: var(--g-blue-light); }
+    .clear-btn:hover { 
+      background: var(--danger-light); 
+      color: var(--danger); 
+    }
 
     /* ─── CTA ─── */
-    .cta-row { display: flex; align-items: center; gap: 16px; margin-bottom: 40px; }
+    .cta-row { display: flex; align-items: center; gap: 20px; margin-bottom: 48px; }
 
     .analyze-btn {
-      background-color: var(--g-blue);
+      background: var(--primary-gradient);
       color: white;
-      border-radius: 4px;
-      padding: 10px 24px;
-      font-family: 'Google Sans', sans-serif;
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 0.25px;
+      border-radius: var(--radius-md);
+      padding: 14px 32px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
       border: none;
       cursor: pointer;
-      transition: background-color 0.2s, box-shadow 0.2s;
+      transition: all 0.3s;
+      box-shadow: var(--shadow-glow);
     }
 
     .analyze-btn:hover {
-      background-color: var(--g-blue-hover);
-      box-shadow: var(--shadow-sm);
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px -5px rgba(79, 70, 229, 0.4);
     }
 
-    .cta-note { font-size: 13px; color: var(--g-grey-600); }
+    .cta-note { font-size: 14px; color: var(--text-light); }
 
     /* ─── RESULTS ─── */
     #result { display: none; }
 
     /* ─── SUMMARY BAR ─── */
     .summary-bar {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 16px;
-      margin-bottom: 32px;
-      flex-wrap: wrap;
+      margin-bottom: 40px;
     }
 
     .summary-card {
-      flex: 1;
-      min-width: 140px;
       background: #ffffff;
-      border: 1px solid var(--g-grey-200);
-      border-radius: 8px;
-      padding: 20px;
+      border: 1px solid var(--surface-200);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .summary-num {
-      font-family: 'Google Sans', sans-serif;
-      font-size: 32px;
-      font-weight: 400;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 36px;
+      font-weight: 700;
       line-height: 1;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
     }
 
-    .s-strong .summary-num { color: var(--g-green); }
-    .s-medium .summary-num { color: var(--g-yellow); }
-    .s-skills .summary-num { color: var(--g-blue); }
-    .s-total  .summary-num { color: var(--g-grey-700); }
+    .s-strong .summary-num { color: var(--success); }
+    .s-medium .summary-num { color: var(--warning); }
+    .s-skills .summary-num { color: var(--primary); }
+    .s-total  .summary-num { color: var(--text-main); }
 
     .summary-label {
-      font-size: 12px;
-      color: var(--g-grey-600);
-      font-weight: 500;
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
-    /* ─── UNLOCK PANEL ─── */
+    /* ─── UNLOCK PANEL (Premium Style) ─── */
     .unlock-panel {
-      background: var(--g-grey-100);
-      border: 1px solid var(--g-grey-200);
-      border-radius: 8px;
-      padding: 24px;
-      margin-bottom: 32px;
+      background: linear-gradient(to right, #1E293B, #0F172A);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      margin-bottom: 48px;
+      color: #ffffff;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .unlock-panel::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(79,70,229,0.15) 0%, transparent 50%);
+      pointer-events: none;
     }
 
     .unlock-title {
-      font-family: 'Google Sans', sans-serif;
-      font-size: 18px;
-      font-weight: 500;
-      color: var(--g-text);
-      margin-bottom: 4px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      position: relative;
     }
 
-    .unlock-sub { font-size: 14px; color: var(--g-grey-700); margin-bottom: 20px; }
+    .unlock-sub { font-size: 15px; color: var(--surface-300); margin-bottom: 24px; position: relative; }
 
     .unlock-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      position: relative;
     }
 
     .unlock-card {
-      background: #ffffff;
-      border: 1px solid var(--g-grey-200);
-      border-radius: 8px;
-      padding: 16px;
-      box-shadow: 0 1px 2px 0 rgba(60,64,67,0.1);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      transition: transform 0.2s, background 0.2s;
+    }
+    
+    .unlock-card:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-2px);
     }
 
     .unlock-skill {
-      font-family: 'Google Sans', sans-serif;
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--g-blue);
-      margin-bottom: 4px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #A5B4FC;
+      margin-bottom: 6px;
     }
 
-    .unlock-roles { font-size: 12px; color: var(--g-grey-700); line-height: 1.5; margin-bottom: 8px;}
+    .unlock-roles { font-size: 13px; color: var(--surface-200); line-height: 1.5; margin-bottom: 12px;}
 
     .unlock-bump {
-      display: inline-block;
-      padding: 4px 8px;
-      background: var(--g-green-light);
-      color: var(--g-green);
-      border-radius: 4px;
-      font-size: 11px;
-      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      background: rgba(16, 185, 129, 0.2);
+      color: #34D399;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 600;
     }
 
     /* ─── VIEW TOGGLE ─── */
@@ -330,39 +385,39 @@
       justify-content: space-between;
       margin-bottom: 24px;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 16px;
     }
 
     .results-title {
-      font-family: 'Google Sans', sans-serif;
-      font-size: 20px;
-      font-weight: 500;
-      color: var(--g-text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-main);
     }
 
     .view-tabs {
       display: flex;
-      background: var(--g-grey-100);
-      border-radius: 8px;
+      background: var(--surface-200);
+      border-radius: var(--radius-md);
       padding: 4px;
     }
 
     .view-tab {
-      padding: 6px 16px;
+      padding: 8px 20px;
       background: transparent;
       border: none;
-      border-radius: 6px;
-      font-size: 13px;
-      font-weight: 500;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 600;
       cursor: pointer;
-      color: var(--g-grey-700);
+      color: var(--text-muted);
       transition: all 0.2s;
     }
 
     .view-tab.active {
       background: #ffffff;
-      color: var(--g-blue);
-      box-shadow: 0 1px 2px rgba(60,64,67,0.2);
+      color: var(--primary);
+      box-shadow: var(--shadow-sm);
     }
 
     /* ─── CARDS ─── */
@@ -374,192 +429,213 @@
 
     .role-card {
       background: #ffffff;
-      border: 1px solid var(--g-grey-200);
-      border-radius: 8px;
-      padding: 24px;
-      transition: box-shadow 0.2s, transform 0.2s;
+      border: 1px solid var(--surface-200);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      transition: all 0.3s ease;
       display: flex;
       flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .role-card.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .role-card:hover {
-      box-shadow: var(--shadow-sm);
-      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--surface-300);
+      transform: translateY(-4px);
     }
 
     .card-head {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
 
     .card-role {
-      font-family: 'Google Sans', sans-serif;
-      font-size: 18px;
-      font-weight: 500;
-      color: var(--g-blue);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-main);
       line-height: 1.2;
     }
 
     .card-demand {
       display: inline-block;
       font-size: 11px;
-      font-weight: 500;
-      background: var(--g-grey-100);
-      padding: 2px 8px;
-      border-radius: 12px;
-      color: var(--g-grey-700);
+      font-weight: 600;
+      text-transform: uppercase;
+      background: var(--surface-100);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      color: var(--text-muted);
       margin-top: 8px;
     }
 
     .card-desc {
-      font-size: 13px;
-      color: var(--g-grey-600);
-      margin-top: 8px;
-      line-height: 1.5;
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 12px;
+      line-height: 1.6;
     }
 
     .match-box {
       text-align: right;
+      background: var(--surface-50);
+      padding: 10px 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--surface-100);
     }
 
     .match-pct {
-      font-family: 'Google Sans', sans-serif;
-      font-size: 28px;
-      font-weight: 400;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 26px;
+      font-weight: 700;
       line-height: 1;
     }
 
-    .match-strong { color: var(--g-green); }
-    .match-medium { color: var(--g-yellow); }
-    .match-low    { color: var(--g-red); }
+    .match-strong { color: var(--success); }
+    .match-medium { color: var(--warning); }
+    .match-low    { color: var(--danger); }
     
     .match-lbl { 
       font-size: 11px; 
-      color: var(--g-grey-600); 
+      color: var(--text-muted); 
       margin-top: 4px;
-      font-weight: 500;
+      font-weight: 600;
+      text-transform: uppercase;
     }
 
     .fit-row {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 20px;
+      gap: 16px;
+      margin-bottom: 24px;
     }
 
     .fit-pill {
-      padding: 4px 10px;
-      border-radius: 4px;
-      font-size: 11px;
-      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 600;
     }
 
-    .pill-strong { background: var(--g-green-light); color: var(--g-green); }
-    .pill-medium { background: var(--g-yellow-light); color: var(--g-yellow); }
-    .pill-low    { background: var(--g-red-light); color: var(--g-red); }
+    .pill-strong { background: var(--success-light); color: #047857; }
+    .pill-medium { background: var(--warning-light); color: #B45309; }
+    .pill-low    { background: var(--danger-light); color: #B91C1C; }
 
-    .prog-bar { flex: 1; height: 4px; background: var(--g-grey-100); border-radius: 2px; overflow: hidden;}
-    .prog-fill { height: 100%; border-radius: 2px; transition: width 0.7s ease; }
-    .fill-strong { background: var(--g-green); }
-    .fill-medium { background: var(--g-yellow); }
-    .fill-low    { background: var(--g-red); }
+    .prog-bar { flex: 1; height: 6px; background: var(--surface-200); border-radius: var(--radius-full); overflow: hidden;}
+    .prog-fill { height: 100%; border-radius: var(--radius-full); transition: width 1s cubic-bezier(0.4, 0, 0.2, 1); }
+    .fill-strong { background: var(--success-gradient); }
+    .fill-medium { background: var(--warning-gradient); }
+    .fill-low    { background: var(--danger-gradient); }
 
-    .csec { margin-bottom: 16px; }
+    .csec { margin-bottom: 20px; }
 
     .csec-label {
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--g-text);
-      margin-bottom: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 10px;
     }
 
-    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
 
     .tag {
-      padding: 4px 10px;
-      border-radius: 4px;
+      padding: 4px 12px;
+      border-radius: var(--radius-sm);
       font-size: 12px;
-      background: var(--g-grey-100);
-      color: var(--g-grey-700);
+      font-weight: 500;
+      background: var(--surface-100);
+      color: var(--text-muted);
+      border: 1px solid var(--surface-200);
     }
 
     .tag.miss {
-      background: var(--g-red-light);
-      color: var(--g-red);
+      background: #fff;
+      border-color: var(--danger-light);
+      color: var(--danger);
     }
 
     /* ─── SALARY TABLE ─── */
     .sal-wrap {
-      border: 1px solid var(--g-grey-200);
-      border-radius: 8px;
+      border: 1px solid var(--surface-200);
+      border-radius: var(--radius-md);
       overflow: hidden;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
 
     .sal-wrap table { width: 100%; border-collapse: collapse; }
 
-    .sal-wrap thead tr { background: var(--g-grey-50); border-bottom: 1px solid var(--g-grey-200); }
+    .sal-wrap thead tr { background: var(--surface-50); border-bottom: 1px solid var(--surface-200); }
 
     .sal-wrap thead th {
-      padding: 8px 12px;
+      padding: 10px 16px;
       font-size: 11px;
-      font-weight: 500;
-      color: var(--g-grey-600);
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
       text-align: left;
     }
 
-    .sal-wrap tbody tr { border-bottom: 1px solid var(--g-grey-100); }
+    .sal-wrap tbody tr { border-bottom: 1px solid var(--surface-100); }
     .sal-wrap tbody tr:last-child { border-bottom: none; }
-    .sal-wrap td { padding: 8px 12px; font-size: 13px; }
-    .xp-label { color: var(--g-grey-700); }
-    .sal-val { font-weight: 500; color: var(--g-text); text-align: right; }
+    .sal-wrap td { padding: 10px 16px; font-size: 14px; }
+    .xp-label { color: var(--text-muted); font-weight: 500;}
+    .sal-val { font-weight: 600; color: var(--text-main); text-align: right; }
 
     /* Industries */
-    .ind-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .ind-tags { display: flex; flex-wrap: wrap; gap: 8px; }
     .ind-tag {
       font-size: 12px;
-      color: var(--g-grey-600);
-      background: transparent;
-      border: 1px solid var(--g-grey-300);
-      padding: 2px 8px;
-      border-radius: 12px;
+      color: var(--primary);
+      background: var(--primary-light);
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
     }
 
     /* Next Move */
     .next-move {
-      background: var(--g-blue-light);
-      border-radius: 8px;
+      background: var(--surface-50);
+      border: 1px dashed var(--surface-300);
+      border-radius: var(--radius-md);
       padding: 16px;
-      margin-top: auto; /* Pushes to bottom of card */
-      margin-bottom: 16px;
+      margin-top: auto; 
+      margin-bottom: 20px;
     }
 
     .nm-label {
       font-size: 12px;
-      font-weight: 500;
-      color: var(--g-blue-hover);
-      margin-bottom: 4px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 6px;
     }
 
-    .nm-text { font-size: 13px; color: var(--g-text); line-height: 1.5; }
+    .nm-text { font-size: 14px; color: var(--text-main); line-height: 1.5; }
 
     .cities-row { 
-      font-size: 12px; 
-      color: var(--g-grey-600); 
-      border-top: 1px solid var(--g-grey-100);
-      padding-top: 12px;
+      font-size: 13px; 
+      color: var(--text-muted); 
+      border-top: 1px solid var(--surface-100);
+      padding-top: 16px;
     }
-    .city { font-weight: 500; color: var(--g-grey-700); }
+    .city { font-weight: 600; color: var(--text-main); }
 
     /* ─── TABLE VIEW ─── */
     #table-view { display: none; }
 
     .tbl-wrap {
       background: #ffffff;
-      border: 1px solid var(--g-grey-200);
-      border-radius: 8px;
+      border: 1px solid var(--surface-200);
+      border-radius: var(--radius-lg);
       overflow: auto;
       box-shadow: var(--shadow-sm);
     }
@@ -567,40 +643,42 @@
     .tbl-wrap table { width: 100%; border-collapse: collapse; min-width: 1000px; }
 
     .tbl-wrap thead tr { 
-      background: var(--g-grey-50); 
-      border-bottom: 1px solid var(--g-grey-300);
+      background: var(--surface-50); 
+      border-bottom: 1px solid var(--surface-200);
     }
 
     .tbl-wrap thead th {
-      padding: 12px 16px;
+      padding: 16px;
       font-size: 12px;
-      font-weight: 500;
-      color: var(--g-grey-700);
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
       text-align: left;
       white-space: nowrap;
     }
 
     .tbl-wrap tbody td {
       padding: 16px;
-      border-bottom: 1px solid var(--g-grey-200);
+      border-bottom: 1px solid var(--surface-100);
       vertical-align: top;
-      font-size: 13px;
+      font-size: 14px;
     }
 
-    .tbl-wrap tbody tr:hover td { background: var(--g-grey-50); }
+    .tbl-wrap tbody tr:hover td { background: var(--surface-50); }
     .tbl-wrap tbody tr:last-child td { border-bottom: none; }
 
-    .tbl-role   { font-family: 'Google Sans', sans-serif; font-weight: 500; color: var(--g-blue); font-size: 14px; }
+    .tbl-role   { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; color: var(--text-main); font-size: 15px; }
     
-    .tbl-strong { color: var(--g-green); font-weight: 500; }
-    .tbl-medium { color: var(--g-yellow); font-weight: 500; }
-    .tbl-low    { color: var(--g-red); font-weight: 500; }
+    .tbl-strong { color: var(--success); font-weight: 600; }
+    .tbl-medium { color: var(--warning); font-weight: 600; }
+    .tbl-low    { color: var(--danger); font-weight: 600; }
 
-    .tbl-pct { font-family: 'Google Sans', sans-serif; font-size: 16px; }
+    .tbl-pct { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; }
 
     @media (max-width: 768px) {
       .header-inner { flex-direction: column; align-items: flex-start; }
       #cards-view { grid-template-columns: 1fr; }
+      .panel { padding: 24px; }
     }
   </style>
 </head>
@@ -615,11 +693,11 @@
     <div class="header-stats">
       <div class="hstat">
         <div class="hstat-num" id="total-roles"></div>
-        <div class="hstat-label">Roles</div>
+        <div class="hstat-label">Roles Analyzed</div>
       </div>
       <div class="hstat">
         <div class="hstat-num">2026</div>
-        <div class="hstat-label">Market</div>
+        <div class="hstat-label">Market Data</div>
       </div>
     </div>
   </div>
@@ -629,7 +707,7 @@
 
   <div class="panel">
     <div class="panel-header">
-      <div class="panel-title">Select Your Current Skills</div>
+      <div class="panel-title">1. Select Your Current Stack</div>
       <div class="panel-sub">Click every skill you can apply practically, not just skills studied in theory.</div>
     </div>
 
@@ -658,13 +736,13 @@
 
     <div class="skill-footer">
       <div class="skill-count"><span id="selected-count">0</span> skills selected</div>
-      <button class="clear-btn" onclick="clearAll()">Clear selections</button>
+      <button class="clear-btn" onclick="clearAll()">Clear Selections</button>
     </div>
   </div>
 
   <div class="cta-row">
-    <button class="analyze-btn" onclick="analyze()">Analyze Career Paths</button>
-    <span class="cta-note">Calculates match percentage, salary, and missing skills.</span>
+    <button class="analyze-btn" onclick="analyze()">Run Career Analysis</button>
+    <span class="cta-note">Calculates your perfect fit based on real market requirements.</span>
   </div>
 
   <div id="result">
@@ -673,15 +751,15 @@
 
     <div class="unlock-panel" id="unlock-panel">
       <div class="unlock-title">Highest ROI Skills to Learn Next</div>
-      <div class="unlock-sub">Based on your missing skills, here are the ones that unlock the most value in India right now.</div>
+      <div class="unlock-sub">Based on your missing stack, acquiring these skills unlocks the highest value in India right now.</div>
       <div class="unlock-grid" id="unlock-grid"></div>
     </div>
 
     <div class="results-bar">
-      <div class="results-title">Role Compatibility</div>
+      <div class="results-title">Role Compatibility Matches</div>
       <div class="view-tabs">
-        <button class="view-tab active" id="tab-cards" onclick="switchView('cards')">Cards</button>
-        <button class="view-tab" id="tab-table" onclick="switchView('table')">Table</button>
+        <button class="view-tab active" id="tab-cards" onclick="switchView('cards')">Grid View</button>
+        <button class="view-tab" id="tab-table" onclick="switchView('table')">Table View</button>
       </div>
     </div>
 
@@ -722,6 +800,7 @@
 
   const selected = new Set();
 
+  // Render skills
   Object.entries(skillGroups).forEach(([groupId, skills]) => {
     const container = document.getElementById(groupId);
     skills.forEach(skill => {
@@ -743,191 +822,38 @@
     document.getElementById('selected-count').textContent = 0;
   }
 
+  // Merged Roles Data (Original + 5 Specialized)
   const rolesData = [
-    {
-      role: "Data Analyst",
-      demand: "Very High",
-      desc: "Transform raw data into actionable business insights via dashboards and reporting.",
-      skills: ["SQL", "Excel", "Pandas", "Power BI", "Tableau", "Python", "Statistics"],
-      salary: { intern: "₹10k – ₹30k/mo", fresher: "₹3.5 – 6.5 LPA", mid: "₹8 – 14 LPA", senior: "₹14 – 22 LPA" },
-      industries: ["BFSI", "E-Commerce", "IT Services", "Healthcare"],
-      nextStep: "Build end-to-end dashboard projects. PL-300 certification adds ₹1–2 LPA at entry level.",
-      cities: ["Bengaluru", "Hyderabad", "Pune", "Gurugram"]
-    },
-    {
-      role: "BI Analyst",
-      demand: "High",
-      desc: "KPI tracking, executive dashboards, and business performance reporting.",
-      skills: ["Power BI", "Tableau", "DAX", "SQL", "Excel", "Looker Studio"],
-      salary: { intern: "₹12k – ₹25k/mo", fresher: "₹4 – 7 LPA", mid: "₹8 – 13 LPA", senior: "₹13 – 20 LPA" },
-      industries: ["BFSI", "Retail", "Telecom", "Consulting"],
-      nextStep: "Master DAX in depth. EY, KPMG, Accenture, and Deloitte are top hirers.",
-      cities: ["Gurugram", "Mumbai", "Bengaluru", "Chennai"]
-    },
-    {
-      role: "BI Developer",
-      demand: "Moderate",
-      desc: "Build and automate enterprise reporting pipelines and basic data models.",
-      skills: ["SQL", "Data Modeling", "Power BI", "DAX", "ETL", "Azure"],
-      salary: { intern: "₹12k – ₹28k/mo", fresher: "₹4.5 – 8 LPA", mid: "₹9 – 15 LPA", senior: "₹15 – 25 LPA" },
-      industries: ["IT Services", "BFSI", "Manufacturing"],
-      nextStep: "Learn dimensional modeling and Azure Synapse Analytics.",
-      cities: ["Bengaluru", "Pune", "Hyderabad", "Gurugram"]
-    },
-    {
-      role: "Analytics Engineer",
-      demand: "Very High",
-      desc: "Bridge engineering and analytics by transforming data directly in the warehouse.",
-      skills: ["SQL", "dbt", "Git / Version Control", "Data Modeling", "Python", "ETL"],
-      salary: { intern: "₹15k – ₹30k/mo", fresher: "₹5 – 8.5 LPA", mid: "₹10 – 16 LPA", senior: "₹16 – 28 LPA" },
-      industries: ["Tech Startups", "E-Commerce", "Fintech", "SaaS"],
-      nextStep: "Master dbt (Data Build Tool). This role is rapidly replacing traditional BI Dev roles in modern tech stacks.",
-      cities: ["Bengaluru", "Remote", "Pune", "Gurugram"]
-    },
-    {
-      role: "Data Scientist",
-      demand: "Very High",
-      desc: "Build ML models, run experiments, and translate predictions into product decisions.",
-      skills: ["Python", "Pandas", "Statistics", "Machine Learning", "SQL", "NumPy"],
-      salary: { intern: "₹18k – ₹50k/mo", fresher: "₹6 – 14 LPA", mid: "₹12 – 22 LPA", senior: "₹20 – 40 LPA" },
-      industries: ["Fintech", "E-Commerce", "EdTech", "AI Startups"],
-      nextStep: "Build portfolio ML projects. Adding GenAI skills earns a 25–40% premium.",
-      cities: ["Bengaluru", "Hyderabad", "Pune", "Mumbai"]
-    },
-    {
-      role: "Data Engineer",
-      demand: "Explosive",
-      desc: "Design scalable data pipelines, lakes, and infrastructure for analytics teams.",
-      skills: ["SQL", "Python", "ETL", "Spark", "Airflow", "AWS", "Kafka", "Git / Version Control"],
-      salary: { intern: "₹15k – ₹35k/mo", fresher: "₹5 – 10 LPA", mid: "₹12 – 20 LPA", senior: "₹20 – 38 LPA" },
-      industries: ["IT Services", "E-Commerce", "Media", "Cloud Companies"],
-      nextStep: "Learn Apache Spark and one cloud platform. Fast promotions due to high talent shortage.",
-      cities: ["Bengaluru", "Hyderabad", "Pune", "Chennai"]
-    },
-    {
-      role: "Data Architect",
-      demand: "High (Senior)",
-      desc: "Design the blueprint for enterprise data management systems and infrastructure.",
-      skills: ["System Design", "Data Modeling", "AWS", "SQL", "Spark", "Data Governance"],
-      salary: { intern: "N/A", fresher: "N/A", mid: "₹18 – 30 LPA", senior: "₹35 – 60+ LPA" },
-      industries: ["IT Consulting", "BFSI", "Telecom", "Large Enterprises"],
-      nextStep: "Usually requires 8+ years experience. Focus on cloud architecture certs (e.g. AWS Solutions Architect).",
-      cities: ["Bengaluru", "Mumbai", "Gurugram", "Hyderabad"]
-    },
-    {
-      role: "ML Engineer",
-      demand: "High",
-      desc: "Deploy, monitor, and scale machine learning models in production environments.",
-      skills: ["Python", "Machine Learning", "MLOps", "Docker", "AWS", "Deep Learning"],
-      salary: { intern: "₹20k – ₹60k/mo", fresher: "₹7 – 14 LPA", mid: "₹14 – 25 LPA", senior: "₹25 – 50 LPA" },
-      industries: ["AI Startups", "Product Companies", "HealthTech"],
-      nextStep: "Learn MLflow, FastAPI, and Docker for deployment.",
-      cities: ["Bengaluru", "Hyderabad", "Gurugram"]
-    },
-    {
-      role: "AI / GenAI Engineer",
-      demand: "Explosive",
-      desc: "Build LLM-powered applications, RAG systems, and AI agents for enterprise products.",
-      skills: ["Python", "GenAI / LLMs", "Machine Learning", "NLP", "MLOps", "AWS"],
-      salary: { intern: "₹25k – ₹80k/mo", fresher: "₹10 – 20 LPA", mid: "₹20 – 35 LPA", senior: "₹35 – 70 LPA" },
-      industries: ["AI Startups", "SaaS", "Fintech"],
-      nextStep: "Learn LangChain, RAG architectures, and prompt engineering. Highest growth role currently.",
-      cities: ["Bengaluru", "Hyderabad", "Gurugram", "Remote"]
-    },
-    {
-      role: "Business Analyst",
-      demand: "Very High",
-      desc: "Bridge technology and business through requirements gathering and process mapping.",
-      skills: ["Excel", "SQL", "Statistics", "Tableau", "Agile / Scrum"],
-      salary: { intern: "₹10k – ₹25k/mo", fresher: "₹3.5 – 6 LPA", mid: "₹7 – 13 LPA", senior: "₹13 – 22 LPA" },
-      industries: ["Consulting", "IT Services", "BFSI"],
-      nextStep: "CBAP or Agile BA certification significantly boosts employability.",
-      cities: ["Mumbai", "Gurugram", "Bengaluru", "Pune"]
-    },
-    {
-      role: "Data Product Manager",
-      demand: "High",
-      desc: "Define the vision, roadmap, and strategy for internal or external data products.",
-      skills: ["Agile / Scrum", "SQL", "A/B Testing", "Excel", "Statistics"],
-      salary: { intern: "₹20k – ₹40k/mo", fresher: "₹8 – 12 LPA", mid: "₹15 – 25 LPA", senior: "₹25 – 45 LPA" },
-      industries: ["E-commerce", "SaaS", "Fintech", "Product Companies"],
-      nextStep: "Build a strong foundation in both technical data concepts and product management frameworks.",
-      cities: ["Bengaluru", "Gurugram", "Hyderabad", "Mumbai"]
-    },
-    {
-      role: "Database Administrator",
-      demand: "Moderate",
-      desc: "Manage, optimize, and secure enterprise databases and data infrastructure.",
-      skills: ["SQL", "Data Modeling", "ETL", "Data Governance"],
-      salary: { intern: "₹10k – ₹20k/mo", fresher: "₹3 – 5.5 LPA", mid: "₹6 – 11 LPA", senior: "₹11 – 18 LPA" },
-      industries: ["IT Services", "Government", "Telecom"],
-      nextStep: "Cloud database skills (AWS RDS, Azure SQL) are now mandatory.",
-      cities: ["Chennai", "Pune", "Hyderabad"]
-    },
-    {
-      role: "Growth / Product Analyst",
-      demand: "Very High",
-      desc: "Focus on user behavior, conversion funnels, and feature success to drive product growth.",
-      skills: ["A/B Testing", "SQL", "Python", "Tableau", "Statistics", "Excel"],
-      salary: { intern: "₹15k – ₹35k/mo", fresher: "₹6 – 10 LPA", mid: "₹12 – 20 LPA", senior: "₹20 – 35 LPA" },
-      industries: ["E-Commerce", "SaaS", "Gaming", "Consumer Tech"],
-      nextStep: "Master Mixpanel or Amplitude alongside A/B testing to become indispensable to product teams.",
-      cities: ["Bengaluru", "Gurugram", "Pune"]
-    },
-    {
-      role: "Quantitative Analyst (Quant)",
-      demand: "High",
-      desc: "Apply advanced mathematical and statistical models to financial markets and risk management.",
-      skills: ["Python", "R", "Statistics", "Machine Learning", "SQL", "Pandas"],
-      salary: { intern: "₹30k – ₹70k/mo", fresher: "₹10 – 20 LPA", mid: "₹20 – 40 LPA", senior: "₹40 – 80+ LPA" },
-      industries: ["Investment Banking", "Hedge Funds", "Fintech", "Prop Trading"],
-      nextStep: "Deepen expertise in stochastic calculus and time-series analysis. Target roles in Mumbai or Gift City.",
-      cities: ["Mumbai", "Bengaluru", "Gurugram"]
-    },
-    {
-      role: "NLP Engineer",
-      demand: "Explosive",
-      desc: "Specialized AI role focused entirely on parsing, understanding, and generating human language.",
-      skills: ["Python", "NLP", "Deep Learning", "Machine Learning", "GenAI / LLMs", "AWS"],
-      salary: { intern: "₹20k – ₹50k/mo", fresher: "₹8 – 15 LPA", mid: "₹15 – 28 LPA", senior: "₹28 – 55 LPA" },
-      industries: ["AI Startups", "Customer Experience", "EdTech", "LegalTech"],
-      nextStep: "Move beyond API calling to fine-tuning open-source models (Llama, Mistral) on custom enterprise datasets.",
-      cities: ["Bengaluru", "Hyderabad", "Remote", "Pune"]
-    },
-    {
-      role: "Computer Vision Engineer",
-      demand: "High",
-      desc: "Develop algorithms to extract insights from images and video streams for automation.",
-      skills: ["Python", "Computer Vision", "Deep Learning", "NumPy", "MLOps", "Docker"],
-      salary: { intern: "₹20k – ₹45k/mo", fresher: "₹8 – 14 LPA", mid: "₹14 – 25 LPA", senior: "₹25 – 45 LPA" },
-      industries: ["Manufacturing", "HealthTech", "AgriTech", "Automotive"],
-      nextStep: "Learn edge deployment (TensorRT, ONNX) for running CV models on IoT devices and drones.",
-      cities: ["Bengaluru", "Pune", "Chennai"]
-    },
-    {
-      role: "Data Governance Manager",
-      demand: "High",
-      desc: "Ensure data quality, privacy compliance, and proper cataloging across the enterprise.",
-      skills: ["Data Governance", "SQL", "Excel", "Data Modeling", "Agile / Scrum"],
-      salary: { intern: "N/A", fresher: "₹5 – 8 LPA", mid: "₹10 – 18 LPA", senior: "₹20 – 35 LPA" },
-      industries: ["BFSI", "Healthcare", "Telecom", "Government"],
-      nextStep: "Obtain DAMA (CDMP) certification. Critical role as India’s DPDP (Digital Personal Data Protection) Act takes effect.",
-      cities: ["Mumbai", "Gurugram", "Bengaluru", "Hyderabad"]
-    }
+    { role: "Data Analyst", demand: "Very High", desc: "Transform raw data into actionable business insights via dashboards and reporting.", skills: ["SQL", "Excel", "Pandas", "Power BI", "Tableau", "Python", "Statistics"], salary: { intern: "₹10k – ₹30k/mo", fresher: "₹3.5 – 6.5 LPA", mid: "₹8 – 14 LPA", senior: "₹14 – 22 LPA" }, industries: ["BFSI", "E-Commerce", "IT Services", "Healthcare"], nextStep: "Build end-to-end dashboard projects. PL-300 certification adds ₹1–2 LPA at entry level.", cities: ["Bengaluru", "Hyderabad", "Pune", "Gurugram"] },
+    { role: "BI Analyst", demand: "High", desc: "KPI tracking, executive dashboards, and business performance reporting.", skills: ["Power BI", "Tableau", "DAX", "SQL", "Excel", "Looker Studio"], salary: { intern: "₹12k – ₹25k/mo", fresher: "₹4 – 7 LPA", mid: "₹8 – 13 LPA", senior: "₹13 – 20 LPA" }, industries: ["BFSI", "Retail", "Telecom", "Consulting"], nextStep: "Master DAX in depth. EY, KPMG, Accenture, and Deloitte are top hirers.", cities: ["Gurugram", "Mumbai", "Bengaluru", "Chennai"] },
+    { role: "BI Developer", demand: "Moderate", desc: "Build and automate enterprise reporting pipelines and basic data models.", skills: ["SQL", "Data Modeling", "Power BI", "DAX", "ETL", "Azure"], salary: { intern: "₹12k – ₹28k/mo", fresher: "₹4.5 – 8 LPA", mid: "₹9 – 15 LPA", senior: "₹15 – 25 LPA" }, industries: ["IT Services", "BFSI", "Manufacturing"], nextStep: "Learn dimensional modeling and Azure Synapse Analytics.", cities: ["Bengaluru", "Pune", "Hyderabad", "Gurugram"] },
+    { role: "Analytics Engineer", demand: "Very High", desc: "Bridge engineering and analytics by transforming data directly in the warehouse.", skills: ["SQL", "dbt", "Git / Version Control", "Data Modeling", "Python", "ETL"], salary: { intern: "₹15k – ₹30k/mo", fresher: "₹5 – 8.5 LPA", mid: "₹10 – 16 LPA", senior: "₹16 – 28 LPA" }, industries: ["Tech Startups", "E-Commerce", "Fintech", "SaaS"], nextStep: "Master dbt (Data Build Tool). This role is rapidly replacing traditional BI Dev roles in modern tech stacks.", cities: ["Bengaluru", "Remote", "Pune", "Gurugram"] },
+    { role: "Data Scientist", demand: "Very High", desc: "Build ML models, run experiments, and translate predictions into product decisions.", skills: ["Python", "Pandas", "Statistics", "Machine Learning", "SQL", "NumPy"], salary: { intern: "₹18k – ₹50k/mo", fresher: "₹6 – 14 LPA", mid: "₹12 – 22 LPA", senior: "₹20 – 40 LPA" }, industries: ["Fintech", "E-Commerce", "EdTech", "AI Startups"], nextStep: "Build portfolio ML projects. Adding GenAI skills earns a 25–40% premium.", cities: ["Bengaluru", "Hyderabad", "Pune", "Mumbai"] },
+    { role: "Data Engineer", demand: "Explosive", desc: "Design scalable data pipelines, lakes, and infrastructure for analytics teams.", skills: ["SQL", "Python", "ETL", "Spark", "Airflow", "AWS", "Kafka", "Git / Version Control"], salary: { intern: "₹15k – ₹35k/mo", fresher: "₹5 – 10 LPA", mid: "₹12 – 20 LPA", senior: "₹20 – 38 LPA" }, industries: ["IT Services", "E-Commerce", "Media", "Cloud Companies"], nextStep: "Learn Apache Spark and one cloud platform. Fast promotions due to high talent shortage.", cities: ["Bengaluru", "Hyderabad", "Pune", "Chennai"] },
+    { role: "Data Architect", demand: "High (Senior)", desc: "Design the blueprint for enterprise data management systems and infrastructure.", skills: ["System Design", "Data Modeling", "AWS", "SQL", "Spark", "Data Governance"], salary: { intern: "N/A", fresher: "N/A", mid: "₹18 – 30 LPA", senior: "₹35 – 60+ LPA" }, industries: ["IT Consulting", "BFSI", "Telecom", "Large Enterprises"], nextStep: "Usually requires 8+ years experience. Focus on cloud architecture certs (e.g. AWS Solutions Architect).", cities: ["Bengaluru", "Mumbai", "Gurugram", "Hyderabad"] },
+    { role: "ML Engineer", demand: "High", desc: "Deploy, monitor, and scale machine learning models in production environments.", skills: ["Python", "Machine Learning", "MLOps", "Docker", "AWS", "Deep Learning"], salary: { intern: "₹20k – ₹60k/mo", fresher: "₹7 – 14 LPA", mid: "₹14 – 25 LPA", senior: "₹25 – 50 LPA" }, industries: ["AI Startups", "Product Companies", "HealthTech"], nextStep: "Learn MLflow, FastAPI, and Docker for deployment.", cities: ["Bengaluru", "Hyderabad", "Gurugram"] },
+    { role: "AI / GenAI Engineer", demand: "Explosive", desc: "Build LLM-powered applications, RAG systems, and AI agents for enterprise products.", skills: ["Python", "GenAI / LLMs", "Machine Learning", "NLP", "MLOps", "AWS"], salary: { intern: "₹25k – ₹80k/mo", fresher: "₹10 – 20 LPA", mid: "₹20 – 35 LPA", senior: "₹35 – 70 LPA" }, industries: ["AI Startups", "SaaS", "Fintech"], nextStep: "Learn LangChain, RAG architectures, and prompt engineering. Highest growth role currently.", cities: ["Bengaluru", "Hyderabad", "Gurugram", "Remote"] },
+    { role: "Business Analyst", demand: "Very High", desc: "Bridge technology and business through requirements gathering and process mapping.", skills: ["Excel", "SQL", "Statistics", "Tableau", "Agile / Scrum"], salary: { intern: "₹10k – ₹25k/mo", fresher: "₹3.5 – 6 LPA", mid: "₹7 – 13 LPA", senior: "₹13 – 22 LPA" }, industries: ["Consulting", "IT Services", "BFSI"], nextStep: "CBAP or Agile BA certification significantly boosts employability.", cities: ["Mumbai", "Gurugram", "Bengaluru", "Pune"] },
+    { role: "Data Product Manager", demand: "High", desc: "Define the vision, roadmap, and strategy for internal or external data products.", skills: ["Agile / Scrum", "SQL", "A/B Testing", "Excel", "Statistics"], salary: { intern: "₹20k – ₹40k/mo", fresher: "₹8 – 12 LPA", mid: "₹15 – 25 LPA", senior: "₹25 – 45 LPA" }, industries: ["E-commerce", "SaaS", "Fintech", "Product Companies"], nextStep: "Build a strong foundation in both technical data concepts and product management frameworks.", cities: ["Bengaluru", "Gurugram", "Hyderabad", "Mumbai"] },
+    { role: "Database Administrator", demand: "Moderate", desc: "Manage, optimize, and secure enterprise databases and data infrastructure.", skills: ["SQL", "Data Modeling", "ETL", "Data Governance"], salary: { intern: "₹10k – ₹20k/mo", fresher: "₹3 – 5.5 LPA", mid: "₹6 – 11 LPA", senior: "₹11 – 18 LPA" }, industries: ["IT Services", "Government", "Telecom"], nextStep: "Cloud database skills (AWS RDS, Azure SQL) are now mandatory.", cities: ["Chennai", "Pune", "Hyderabad"] },
+    { role: "Growth / Product Analyst", demand: "Very High", desc: "Focus on user behavior, conversion funnels, and feature success to drive product growth.", skills: ["A/B Testing", "SQL", "Python", "Tableau", "Statistics", "Excel"], salary: { intern: "₹15k – ₹35k/mo", fresher: "₹6 – 10 LPA", mid: "₹12 – 20 LPA", senior: "₹20 – 35 LPA" }, industries: ["E-Commerce", "SaaS", "Gaming", "Consumer Tech"], nextStep: "Master Mixpanel or Amplitude alongside A/B testing to become indispensable to product teams.", cities: ["Bengaluru", "Gurugram", "Pune"] },
+    { role: "Quantitative Analyst (Quant)", demand: "High", desc: "Apply advanced mathematical and statistical models to financial markets and risk management.", skills: ["Python", "R", "Statistics", "Machine Learning", "SQL", "Pandas"], salary: { intern: "₹30k – ₹70k/mo", fresher: "₹10 – 20 LPA", mid: "₹20 – 40 LPA", senior: "₹40 – 80+ LPA" }, industries: ["Investment Banking", "Hedge Funds", "Fintech", "Prop Trading"], nextStep: "Deepen expertise in stochastic calculus and time-series analysis. Target roles in Mumbai or Gift City.", cities: ["Mumbai", "Bengaluru", "Gurugram"] },
+    { role: "NLP Engineer", demand: "Explosive", desc: "Specialized AI role focused entirely on parsing, understanding, and generating human language.", skills: ["Python", "NLP", "Deep Learning", "Machine Learning", "GenAI / LLMs", "AWS"], salary: { intern: "₹20k – ₹50k/mo", fresher: "₹8 – 15 LPA", mid: "₹15 – 28 LPA", senior: "₹28 – 55 LPA" }, industries: ["AI Startups", "Customer Experience", "EdTech", "LegalTech"], nextStep: "Move beyond API calling to fine-tuning open-source models (Llama, Mistral) on custom enterprise datasets.", cities: ["Bengaluru", "Hyderabad", "Remote", "Pune"] },
+    { role: "Computer Vision Engineer", demand: "High", desc: "Develop algorithms to extract insights from images and video streams for automation.", skills: ["Python", "Computer Vision", "Deep Learning", "NumPy", "MLOps", "Docker"], salary: { intern: "₹20k – ₹45k/mo", fresher: "₹8 – 14 LPA", mid: "₹14 – 25 LPA", senior: "₹25 – 45 LPA" }, industries: ["Manufacturing", "HealthTech", "AgriTech", "Automotive"], nextStep: "Learn edge deployment (TensorRT, ONNX) for running CV models on IoT devices and drones.", cities: ["Bengaluru", "Pune", "Chennai"] },
+    { role: "Data Governance Manager", demand: "High", desc: "Ensure data quality, privacy compliance, and proper cataloging across the enterprise.", skills: ["Data Governance", "SQL", "Excel", "Data Modeling", "Agile / Scrum"], salary: { intern: "N/A", fresher: "₹5 – 8 LPA", mid: "₹10 – 18 LPA", senior: "₹20 – 35 LPA" }, industries: ["BFSI", "Healthcare", "Telecom", "Government"], nextStep: "Obtain DAMA (CDMP) certification. Critical role as India’s DPDP (Digital Personal Data Protection) Act takes effect.", cities: ["Mumbai", "Gurugram", "Bengaluru", "Hyderabad"] }
   ];
 
-  // Dynamically set the total roles counter in the header
   document.getElementById('total-roles').textContent = rolesData.length;
 
   const skillTips = [
     { skill: "SQL",              roles: "Almost All Roles",                                      bump: "Absolute Foundation" },
-    { skill: "Python",           roles: "Data Scientist, Data Engineer, ML/AI Engineer",                 bump: "+20-30% salary premium" },
-    { skill: "dbt",              roles: "Analytics Engineer, Data Engineer",                             bump: "Unlocks modern data stacks" },
-    { skill: "GenAI / LLMs",     roles: "AI Engineer, ML Engineer",                                      bump: "Highest current market premium" },
-    { skill: "Spark",            roles: "Data Engineer, Data Architect",                                 bump: "Opens high-scale enterprise roles" },
-    { skill: "AWS",              roles: "Data Engineer, ML Engineer, Architect",                         bump: "Cloud certs add 15-25% salary" },
-    { skill: "Agile / Scrum",    roles: "Data Product Manager, Business Analyst",                        bump: "Crucial for tech leadership" },
-    { skill: "System Design",    roles: "Data Architect, Senior Data Engineer",                          bump: "Unlocks ₹30L+ salary bracket" }
+    { skill: "Python",           roles: "Data Scientist, Data Engineer, ML/AI Engineer",         bump: "+20-30% salary premium" },
+    { skill: "dbt",              roles: "Analytics Engineer, Data Engineer",                     bump: "Unlocks modern data stacks" },
+    { skill: "GenAI / LLMs",     roles: "AI Engineer, NLP Engineer",                             bump: "Highest current market premium" },
+    { skill: "Spark",            roles: "Data Engineer, Data Architect",                         bump: "Opens high-scale enterprise roles" },
+    { skill: "AWS",              roles: "Data Engineer, ML Engineer, Architect",                 bump: "Cloud certs add 15-25% salary" },
+    { skill: "Agile / Scrum",    roles: "Data Product Manager, Governance Manager",              bump: "Crucial for tech leadership" },
+    { skill: "System Design",    roles: "Data Architect, Senior Data Engineer",                  bump: "Unlocks ₹30L+ salary bracket" }
   ];
 
   function getFit(score) {
@@ -967,11 +893,12 @@
             <div class="unlock-roles"><b>Unlocks:</b> ${t.roles}</div>
             <span class="unlock-bump">${t.bump}</span>
           </div>`).join('')
-      : `<div style="color:var(--g-text);font-size:14px;">You possess a comprehensive skill set. Focus on deepening your expertise and system design to hit the highest salary brackets.</div>`;
+      : `<div style="color:var(--text-light);font-size:15px; grid-column: 1 / -1;">You possess a highly comprehensive skill set! Focus on deepening your architecture expertise, soft skills, and system design to hit the highest executive salary brackets.</div>`;
 
-    // Cards
-    document.getElementById('cards-view').innerHTML = scored.map(r => `
-      <div class="role-card">
+    // Cards with cascade animation
+    const cardsView = document.getElementById('cards-view');
+    cardsView.innerHTML = scored.map((r, i) => `
+      <div class="role-card" id="card-${i}">
         <div class="card-head">
           <div>
             <div class="card-role">${r.role}</div>
@@ -987,7 +914,7 @@
         <div class="fit-row">
           <span class="fit-pill ${r.fit.pillCls}">${r.fit.label}</span>
           <div class="prog-bar">
-            <div class="prog-fill ${r.fit.barCls}" style="width:${r.score}%"></div>
+            <div class="prog-fill ${r.fit.barCls}" style="width: 0%" data-width="${r.score}%"></div>
           </div>
         </div>
 
@@ -1001,7 +928,7 @@
           <div class="csec">
             <div class="csec-label">Skills to Acquire</div>
             <div class="tags">${r.missing.map(s => `<span class="tag miss">${s}</span>`).join('')}</div>
-          </div>` : `<p style="font-size:13px;color:var(--g-green);font-weight:500;margin-bottom:16px">You meet all skill requirements.</p>`}
+          </div>` : `<p style="font-size:14px;color:var(--success);font-weight:600;margin-bottom:20px">✓ You meet all core skill requirements.</p>`}
 
         <div class="csec">
           <div class="sal-wrap">
@@ -1032,14 +959,29 @@
       </div>
     `).join('');
 
+    // Trigger animations
+    setTimeout(() => {
+      scored.forEach((_, i) => {
+        setTimeout(() => {
+          const card = document.getElementById(`card-${i}`);
+          if(card) {
+            card.classList.add('show');
+            // Animate progress bar
+            const prog = card.querySelector('.prog-fill');
+            if(prog) prog.style.width = prog.getAttribute('data-width');
+          }
+        }, i * 75); // Stagger cards by 75ms
+      });
+    }, 100);
+
     // Table
     document.getElementById('table-body').innerHTML = scored.map(r => `
       <tr>
         <td class="tbl-role">${r.role}</td>
         <td class="${r.fit.tblCls}">${r.fit.label}</td>
         <td class="tbl-pct ${r.fit.tblCls}">${r.score}%</td>
-        <td>${r.matched.map(s => `<span class="tag" style="font-size:11px; margin:2px; display:inline-block">${s}</span>`).join('')}</td>
-        <td>${r.missing.map(s => `<span class="tag miss" style="font-size:11px; margin:2px; display:inline-block">${s}</span>`).join('')}</td>
+        <td>${r.matched.map(s => `<span class="tag" style="margin:2px; display:inline-block">${s}</span>`).join('')}</td>
+        <td>${r.missing.map(s => `<span class="tag miss" style="margin:2px; display:inline-block">${s}</span>`).join('')}</td>
         <td class="sal-val">${r.salary.fresher}</td>
         <td class="sal-val">${r.salary.mid}</td>
         <td class="sal-val">${r.salary.senior}</td>
